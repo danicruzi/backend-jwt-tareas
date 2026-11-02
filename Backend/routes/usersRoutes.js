@@ -4,8 +4,8 @@ const {login, register, data} = require('../controllers/usersControllers')
 const protect = require('../middleware/authMiddleware')
 
 router.post('/login', login )
-router.post('/register', register)
+router.post('/', register) //amtes '/register'
 
-router.get('/data', protect, data)
+router.get('/datos', protect, data)
 
 module.exports = router
