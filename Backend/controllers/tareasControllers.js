@@ -16,7 +16,7 @@ const createTareas = asyncHandler(async(req, res) => {
     }
 
     const tarea = await Tarea.create({
-        user: req.user.id_usuario,
+        user: req.user.id,
         descripcion: req.body.descripcion,
     })
 
@@ -59,7 +59,7 @@ const deleteTareas = asyncHandler(async(req, res) => {
             res.status(401)
             throw new Error("Acceso no autorizado")
         } else {
-            await tarea.deletOne()
+            await tarea.deleteOne()
             res.status(200).json({id: req.params.id})
         }
     }
